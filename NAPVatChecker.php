@@ -153,7 +153,7 @@ if (!empty($_GET['code'])) {
     // print_r(var_dump($page));
     // echo "</pre>";
 
-    $re = "/rowspan=1&gt;(.*?)&lt;/";
+    $re = "/rowspan=(1|2)&gt;(.*?)&lt;/";
 	preg_match_all($re, $page, $matches);
 
 	// echo "<pre>";
@@ -162,7 +162,7 @@ if (!empty($_GET['code'])) {
 
 	echo "<h1>Проверка на данни директно от страницата на НАП:</h1>";
 	if (!empty($matches[0])) {
-		foreach ($matches[1] as $v) {
+		foreach ($matches[2] as $v) {
 			echo "<h2>" . $v . "</h2>";
 		}
 	} else {
